@@ -13,23 +13,24 @@ Organização de testes por funcionalidades
 
 ## 📁 Estrutura de Pastas
 
-> cypress/
-> ├── e2e/                    # Arquivos de testes organizados por funcionalidade
-> │   ├── login/
-> │   │   └── login.cy.js
-> │   └── inventario/
-> │       └── inventario.cy.js
-> 
-> ├── fixtures/               # Massa de dados e arquivos estáticos
-> │   ├── usuarios.json
-> │   └── deck.html
-> 
-> ├── support/                # Arquivos de suporte aos testes
-> │   ├── commands.js         # Comandos globais (cy.login, cy.logout, etc.)
-> │   ├── e2e.js              # Arquivo de setup do Cypress (executado antes de cada teste)
-> │   └── pages/              # Page Objects (modelagem de telas)
-> │       └── LoginPage.js
+```plaintext
+cypress/
+├── e2e/                    # Arquivos de testes organizados por funcionalidade
+│   ├── login/
+│   │   └── login.cy.js
+│   └── inventario/
+│       └── inventario.cy.js
 
+├── fixtures/               # Massa de dados e arquivos estáticos
+│   ├── usuarios.json
+│   └── deck.html
+
+├── support/                # Arquivos de suporte aos testes
+│   ├── commands.js         # Comandos globais (cy.login, cy.logout, etc.)
+│   ├── e2e.js              # Arquivo de setup do Cypress (executado antes de cada teste)
+│   └── pages/              # Page Objects (modelagem de telas)
+│       └── LoginPage.js
+```
 
 ## 🚀 Comandos disponíveis
 
