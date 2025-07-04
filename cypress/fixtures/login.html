@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login com Reqres</title>
+</head>
+<body>
+  <h1>Fake Login</h1>
+  <form id="login-form">
+    <label>Email:</label>
+    <input id="email" type="text"><br>
+    <label>Senha:</label>
+    <input id="password" type="password"><br>
+    <button type="submit">Entrar</button>
+  </form>
+
+  <script>
+    document.getElementById('login-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+
+      const res = await fetch('https://reqres.in/api/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password })
+      });
+
+      const data = await res.json();
+      alert(res.status === 200 ? 'Login OK! Token: ' + data.token : 'Erro: ' + data.error);
+    });
+  </script>
+</body>
+</html>

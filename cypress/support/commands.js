@@ -1,3 +1,4 @@
+import LoginPage from './pages/LoginPage';
 // ***********************************************
 // This example commands.js shows you how to
 // create various custom commands and overwrite
@@ -24,9 +25,9 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 Cypress.Commands.add('login', (user, pw) => {
-    cy.get('input[data-test="username"]').should('be.visible').type(user)
-    cy.get('input[data-test="password"]').should('be.visible').type(pw)
-    cy.get('input[data-test="login-button"]').should('be.visible').click()
+    LoginPage.preencherUsuario(user)
+    LoginPage.preencherSenha(pw)
+    LoginPage.clicarLogin()
 
     // cy.url().should('include', '/inventory')
 })

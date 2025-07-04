@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Deck of Cards</title>
+</head>
+<body>
+  <h1>Deck of Cards API</h1>
+  <button id="criar-deck">Criar Novo Baralho</button>
+  <button id="comprar-carta" disabled>Comprar Carta</button>
+  <div id="resultado"></div>
+  <div id="erro" style="color: red;"></div>
+
+  <script>
+  let deckId = null;
+
+  document.getElementById('criar-deck').addEventListener('click', async () => {
+    const res = await fetch('https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1');
+    const data = await res.json();
+    deckId = data.deck_id;
+    document.getElementById('comprar-carta').disabled = false;
+    document.getElementById('resultado').innerText = 'Novo baralho criado! ID: ' + deckId;
+    document.getElementById('erro').innerText = ''; // limpa erro
+  });
+
+  document.getElementById('comprar-carta').addEventListener('click', async () => {
+    try {
+      const res = await fetch(`https://deckofcardsapi.com/api/deck/${deckId}/draw/?count=1`);
+      if (!res.ok) throw new Error('Erro na requisição');
+
+      const data = await res.json();
+      const carta = data.cards[0];
+
+      document.getElementById('resultado').innerHTML = `
+        <p>Carta: ${carta.value} de ${carta.suit}</p>
+        <img src="${carta.image}" alt="carta">
+      `;
+      document.getElementById('erro').innerText = ''; // limpa erro
+    } catch (err) {
+      document.getElementById('erro').innerText = 'Erro ao comprar carta!';
+      document.getElementById('resultado').innerHTML = '';
+    }
+  });
+</script>
+
+</body>
+</html>
