@@ -1,5 +1,4 @@
-import LoginPage from '../../support/pages/LoginPage';
-import PageLogin from '../../support/pages/LoginPage'
+import LoginPage from '../../support/pages/LoginPage'
 describe.only('Login no SauceDemo', () => {
   beforeEach(() => {
     LoginPage.visit()

@@ -1,7 +1,6 @@
-import LoginPage from '../support/pages/LoginPage';
+import LoginPage from '../../support/pages/LoginPage'
 
-
-describe.only('Login no SauceDemo', () => {
+describe('Login no SauceDemo', () => {
   beforeEach(() => {
     LoginPage.visit()
     LoginPage.preencherUsuario('standard_user')
