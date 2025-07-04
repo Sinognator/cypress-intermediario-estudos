@@ -1,15 +1,11 @@
 ## 🧪 Projeto de Estudos com Cypress
 Este projeto tem como objetivo explorar e aplicar testes automatizados com Cypress de forma estruturada, utilizando boas práticas como:
 
-Page Object Model (POM)
-
-Comandos customizados
-
-Separação de dados via fixtures
-
-Interceptação de requisições HTTP
-
-Organização de testes por funcionalidades
+- Page Object Model (POM)
+- Comandos customizados
+- Separação de dados via fixtures
+- Interceptação de requisições HTTP
+- Organização de testes por funcionalidades
 
 ## 📁 Estrutura de Pastas
 
