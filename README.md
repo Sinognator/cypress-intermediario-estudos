@@ -35,8 +35,8 @@ cypress/
 > npx cypress run      # Executa os testes em modo headless
 
 ## 🧰 Tecnologias utilizadas
-Cypress 12+
+- Cypress 12+
 
-GitHub Actions (para CI)
+- GitHub Actions (para CI)
 
-HTML local (ex: deck.html) para simulação de testes com API
+- HTML local (ex: deck.html) para simulação de testes com API
