@@ -1,4 +1,4 @@
-🧪 Projeto de Estudos com Cypress
+# 🧪 Projeto de Estudos com Cypress
 Este projeto tem como objetivo explorar e aplicar testes automatizados com Cypress de forma estruturada, utilizando boas práticas como:
 
 Page Object Model (POM)
@@ -11,7 +11,7 @@ Interceptação de requisições HTTP
 
 Organização de testes por funcionalidades
 
-📁 Estrutura de Pastas
+# 📁 Estrutura de Pastas
 
 cypress/
 ├── e2e/                    # Arquivos de testes organizados por funcionalidade
@@ -31,12 +31,12 @@ cypress/
 │       └── LoginPage.js
 
 
-🚀 Comandos disponíveis
+# 🚀 Comandos disponíveis
 
-npx cypress open     # Abre o Cypress Test Runner
-npx cypress run      # Executa os testes em modo headless
+> npx cypress open     # Abre o Cypress Test Runner
+> npx cypress run      # Executa os testes em modo headless
 
-🧰 Tecnologias utilizadas
+# 🧰 Tecnologias utilizadas
 Cypress 12+
 
 GitHub Actions (para CI)
