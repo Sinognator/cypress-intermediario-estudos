@@ -37,7 +37,7 @@ describe('Carrinho de compras', () => {
 
   it('Preencher primeiro nome e sobrenome, mas deixar o CEP vazio', () => {
     CheckoutPage.preencherNome('Paulo')
-    CheckoutPage.preencherSobrenome('Rocha')
+    CheckoutPage.preencherSobrenome('')
     CheckoutPage.clicarEmContinuar()
     cy.get('[data-icon="times-circle"]').should('be.visible')
     cy.get('[data-test="error"]').should('be.visible').should('contains.text', 'Error: Postal Code is required')
