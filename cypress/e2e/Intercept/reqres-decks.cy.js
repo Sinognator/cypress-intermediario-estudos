@@ -1,13 +1,13 @@
 describe.only('Login com interceptação usando Reqres.in', () => {
   it('Testar a api shuffle', () => {
-    cy.visit('cypress/fixtures/deck.html');
+    cy.visit('https://sinognator.github.io/cypress-test-pages/deck.html');
     cy.intercept('GET', '**/api/deck/new/shuffle/**').as('embaralha');
     cy.get('#criar-deck').click()
     cy.wait('@embaralha').its('response.statusCode').should('eq', 200);
   });
 
   it('Testar a api draw', () => {
-    cy.visit('cypress/fixtures/deck.html');
+    cy.visit('https://sinognator.github.io/cypress-test-pages/deck.html');
     cy.intercept('GET', '**/api/deck/*/draw/**').as('compra');
     cy.get('#criar-deck').click()
     cy.get('#comprar-carta').click()
@@ -15,7 +15,7 @@ describe.only('Login com interceptação usando Reqres.in', () => {
   });
 
   it('Testar erro 401 na api shuffle', () => {
-    cy.visit('cypress/fixtures/deck.html');
+    cy.visit('https://sinognator.github.io/cypress-test-pages/deck.html');
     cy.intercept('GET', '**/api/deck/new/shuffle/**', {
         statusCode: 401,
         body: { error: 'Unauthorized' }
@@ -25,7 +25,7 @@ describe.only('Login com interceptação usando Reqres.in', () => {
   });
 
   it('Testar erro 401 na api draw', () => {
-    cy.visit('cypress/fixtures/deck.html');
+    cy.visit('https://sinognator.github.io/cypress-test-pages/deck.html');
 
     cy.intercept('GET', '**/api/deck/new/shuffle/**', {
         statusCode: 401,
@@ -38,7 +38,7 @@ describe.only('Login com interceptação usando Reqres.in', () => {
   });
 
   it('Testar retorno com carta mockada na api draw', () => {
-    cy.visit('cypress/fixtures/deck.html');
+    cy.visit('https://sinognator.github.io/cypress-test-pages/deck.html');
 
     cy.intercept('GET', '**/api/deck/*/draw/**', {
         statusCode: 200,
@@ -67,7 +67,7 @@ describe.only('Login com interceptação usando Reqres.in', () => {
   });
   
   it('Testar retorno da api draq com retorno 500', () => {
-    cy.visit('cypress/fixtures/deck.html');
+    cy.visit('https://sinognator.github.io/cypress-test-pages/deck.html');
 
     cy.intercept('GET', '**/api/deck/*/draw/**', {
         statusCode: 500}).as('erro');
