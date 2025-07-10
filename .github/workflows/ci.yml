@@ -24,8 +24,12 @@ jobs:
         run: npx cypress run
 
       - name: 📝 Mostrar commit do repositório de páginas
-        if: ${{ github.event.inputs.commit_mensagem != '' }}
-        run: echo "🔗 Commit externo: ${{ github.event.inputs.commit_mensagem }}"
+        run: |
+          if [ -n "${{ github.event.inputs.commit_mensagem }}" ]; then
+            echo "🔗 Commit externo: ${{ github.event.inputs.commit_mensagem }}"
+          else
+            echo "Nenhuma mensagem de commit externo recebida."
+          fi
 
       - name: 📤 Fazer upload de screenshots
         if: failure()
