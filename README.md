@@ -1,4 +1,5 @@
 ## 🧪 Projeto de Estudos com Cypress
+[![Cypress Tests](https://github.com/Sinognator/cypress-intermediario-estudos/actions/workflows/ci.yml/badge.svg)](https://github.com/Sinognator/cypress-intermediario-estudos/actions/workflows/ci.yml)
 Este projeto tem como objetivo explorar e aplicar testes automatizados com Cypress de forma estruturada, utilizando boas práticas como:
 
 - Page Object Model (POM)
