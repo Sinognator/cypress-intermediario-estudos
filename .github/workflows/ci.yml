@@ -1,37 +1,34 @@
-name: Cypress Tests
+name: Execução Cypress via CI
 
 on:
   push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
+    branches: [main]
+  workflow_dispatch:
 
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
 
     steps:
-      - name: 📥 Checkout do repositório
-        uses: actions/checkout@v4
+      - name: 📥 Checkout do código
+        uses: actions/checkout@v3
 
-      - name: 🔧 Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 18
-
-      - name: 📦 Instalar dependências
+      - name: 🟢 Instalar dependências
         run: npm ci
 
-      - name: 🚀 Rodar testes com Cypress
+      - name: 🧪 Executar testes E2E
         run: npx cypress run
 
-      - name: 📤 Upload de vídeos e screenshots (se falhar)
+      - name: 📤 Fazer upload de screenshots
         if: failure()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v3
         with:
-          name: cypress-artifacts
-          path: |
-            cypress/videos
-            cypress/screenshots
+          name: screenshots
+          path: cypress/screenshots
+
+      - name: 📤 Fazer upload de vídeos
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: videos
+          path: cypress/videos
