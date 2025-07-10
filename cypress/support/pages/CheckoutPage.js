@@ -1,9 +1,20 @@
 class CheckoutPage {
   preencherDadosCheckout(nome, sobrenome, cep){
+    this.preencherNome(nome)
+    this.preencherSobrenome(sobrenome)
+    this.preencherCEP(cep)
+  }
+
+  preencherNome(nome){
     cy.get('[data-test="firstName"]').should('be.visible').type(nome);
+  }
+  preencherSobrenome(sobrenome){
     cy.get('[data-test="lastName"]').should('be.visible').type(sobrenome);
+  }
+  preencherCEP(cep){
     cy.get('[data-test="postalCode"]').should('be.visible').type(cep);
   }
+
   clicarEmContinuar(){
     cy.get('[data-test="continue"]').should('be.visible').click();
   }

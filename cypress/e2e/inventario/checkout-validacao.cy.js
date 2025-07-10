@@ -28,28 +28,19 @@ describe('Carrinho de compras', () => {
   })
 
   it('Preencher apenas o primeiro nome', () => {
-    CheckoutPage.preencherDadosCheckout('Paulo', '', '')
+    CheckoutPage.preencherNome('Paulo')
     CheckoutPage.clicarEmContinuar()
     cy.get('[data-icon="times-circle"]').should('be.visible')
-    cy.get('[data-test="error"]').should('be.visible').should('contains.text', 'Error: First Name is required')
+    cy.get('[data-test="error"]').should('be.visible').should('contains.text', 'Error: Last Name is required')
     
   })
 
   it('Preencher primeiro nome e sobrenome, mas deixar o CEP vazio', () => {
-    
-    CheckoutPage.preencherDadosCheckout('Paulo', 'Rocha', '')
+    CheckoutPage.preencherNome('Paulo')
+    CheckoutPage.preencherSobrenome('Rocha')
     CheckoutPage.clicarEmContinuar()
     cy.get('[data-icon="times-circle"]').should('be.visible')
-    cy.get('[data-test="error"]').should('be.visible').should('contains.text', 'Error: First Name is required')
-    
-  })
-
-  it('Preencher todos corretamente e avançar', () => {
-    
-    CheckoutPage.preencherDadosCheckout('Paulo', 'Rocha', '71884338')
-    CheckoutPage.clicarEmContinuar()
-    cy.get('[data-icon="times-circle"]').should('be.visible')
-    cy.get('[data-test="error"]').should('be.visible').should('contains.text', 'Error: First Name is required')
+    cy.get('[data-test="error"]').should('be.visible').should('contains.text', 'Error: Postal Code is required')
     
   })
 
